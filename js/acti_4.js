@@ -83,10 +83,12 @@ function inicio() {
 
 
 }
+
+document.write("<h1>Estadisticas del metodo randon de javaScript. del 1 al 10 </h1>")
 console.log(numeros);
 
-for(let i = 0; i < 11; i++){
-    document.write("Número "+ i+ " => "+ numeros.get(1) + " veces. <br>");
+for(let i = 0; i <= 11; i++){
+    document.write("Número "+ i+ " => "+ numeros.get(i) + " veces. <br>");
 }
 
 }
