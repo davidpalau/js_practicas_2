@@ -12,28 +12,16 @@ window.addEventListener("load", inicio, true);
 function inicio() {
     let numeros = new Map()
     let num;
-    let i_menos1 = 0, i_0 = 0, i_1 = 0; i_2 = 0, i_3 = 0,
-        i_4 = 0, i_5 = 0, i_6 = 0, i_7 = 0, i_8 = 0; i_9 = 0, i_10 = 0, i_11=0;
+    let  i_1 = 0; i_2 = 0, i_3 = 0, i_4 = 0, i_5 = 0,
+     i_6 = 0, i_7 = 0, i_8 = 0; i_9 = 0, i_10 = 0;
+    //Inicializar el objeto map
+        for(let i = 1; i <= 10; i++){
+            numeros.set(i, 0);
+        }
 
-                numeros.set(0, i_0);
-                numeros.set(1, i_1);
-                numeros.set(2, i_2);
-                numeros.set(3, i_3);
-                numeros.set(4, i_4);
-                numeros.set(5, i_5);
-                numeros.set(6, i_6);
-                numeros.set(7, i_7);
-                numeros.set(8, i_8);
-                numeros.set(9, i_9);
-                numeros.set(10, i_10);
-                numeros.set(11, i_11);
     for(let i = 0; i < 10000; i++){
         num = parseInt(Math.random() * (11 -1) +1);
     switch (num) {
-        case 0:
-            i_0++;
-            numeros.set(0, i_0);
-            break;
         case 1:
             i_1++;
             numeros.set(1, i_1);
@@ -74,10 +62,6 @@ function inicio() {
             i_10++;
             numeros.set(10, i_10);
             break;
-        case 11:
-            i_11++;
-            numeros.set(10, i_11);
-            break;
     }
 
 
@@ -87,7 +71,7 @@ function inicio() {
 document.write("<h1>Estadisticas del metodo randon de javaScript. del 1 al 10 </h1>")
 console.log(numeros);
 
-for(let i = 0; i <= 11; i++){
+for(let i = 1; i <= 10; i++){
     document.write("Número "+ i+ " => "+ numeros.get(i) + " veces. <br>");
 }
 
