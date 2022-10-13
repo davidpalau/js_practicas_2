@@ -1,61 +1,43 @@
+/**
+ * ACTIVITY 1 – Caesar style encryption 
+− Caesar  encryption  consists  of  taking  each letter  of  a message  and moving  it  in  the  alphabet 
+the number that gives a key. For example, if key=2 , the letter A scrolls 2, it will become C. 
+− Taking into account that Caesar encryption works with a full alphabet and by displacement (in 
+the example above the letter Z is usually converted to B), create a page that asks the user for 
+a text and a key and writes the same text but moving the characters in the Unicode table the 
+number that indicates the key.
+ */
+
+
+
 window.addEventListener("load",inicio,true);
 
 function inicio(){
-    document.getElementById("mensaje").addEventListener("keyup", function(){
-        this.value = this.value.toUpperCase();
-    }, true);
+
+    document.write("<h1>Cifrado César:</h1>");
+   let frase = window.prompt("Introduzca texto para encriptar: ");
+   //Para estar seguro que todas las letras son minuscula.
+    frase = frase.toLowerCase();
+    console.log(frase);
+    //Posiciones a la derecha
+    let numCesar = window.prompt("Introduzca una cifra: ");
+    numCesar = numCesar % 27;
+    let fraseCesar = "";
+    //abecedario español
+   let letras = "abcdefghijklmnñopqrstuvwxyz";
     
-    document.getElementById("cifrar").addEventListener("click",function(){  
-        let texto = document.getElementById("mensaje").value;
-        let desplazamiento = document.getElementById("desplazamiento").value;               
-        document.getElementById("mensaje2").value = cifrar2(texto, desplazamiento);
-    },true);
-    document.getElementById("descifrar").addEventListener("click",function(){  
-        let texto = document.getElementById("mensaje").value;
-        let desplazamiento = document.getElementById("desplazamiento").value;                               
-        document.getElementById("mensaje2").value = descifrar(texto, desplazamiento);
-    },true);
-}
+   for (let i=0; i<frase.length; ++i){
+    //Si la letra está en el array de letras (es un símbolo, un espacio...)
+    if (letras.indexOf(letras[i])!=-1){
+        //movimiento de posición % 27 en caso de dar la vuelta.
+        let posicion=((letras.indexOf(frase[i])+numCesar) % 27);// En caso de dar la vuelta.
+        fraseCesar+=letras[posicion];
 
-function cifrar(texto, desplazamiento) {
-    if (!texto) 
-        return ''; // No se recomienda que haya más de un punto de salida de la función
-    const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    //Si aceptamos desplazamientos negativos, necesitamos hacerlo dos veces. Si no, sería:
-    //desplazamiento = desplazamiento % 26;
-    desplazamiento = (desplazamiento % 26 + 26) % 26; 
-    return texto.replace(/[A-Z]/ig, c => letras[(letras.indexOf(c) + desplazamiento) % 26]);
-}
-
-function descifrar(texto, desplazamiento) {
-    if (!texto) 
-        return ''; // No se recomienda que haya más de un punto de salida de la función
-    const letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    //Si aceptamos desplazamientos negativos, necesitamos hacerlo dos veces. Si no, sería:
-    //desplazamiento = desplazamiento % 26;
-    desplazamiento = (desplazamiento % 26 - 26) % 26; 
-    return texto.replace(/[A-Z]/ig, c => letras[(letras.indexOf(c) - desplazamiento) % 26]);
-}
-
-function cifrar2(texto, desplazamiento) {
-    let resultado='';
-    let letras = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    //Si aceptamos desplazamientos negativos, necesitamos hacerlo dos veces. Si no, sería:
-    //desplazamiento = desplazamiento % 26;
-    desplazamiento = (desplazamiento % 26 + 26) % 26; 
-    
-    if (texto){
-        for (let i=0; i<texto.length; ++i){
-            //Si la letra está en el array de letras (es un símbolo, un espacio...)
-            if (letras.indexOf(texto[i])!=-1)
-            { 
-                //almacenamos en c la posición de la letra más el desplazamiento y le aplicamos el módulo
-                let posicion=((letras.indexOf(texto[i])+desplazamiento) % 26);
-                resultado+=letras[posicion];
-            }
-            else
-                resultado+=texto[i]; // Números, espacios, símbolos... 
-        }
+    }else{
+        fraseCesar+= frase[i];
     }
-    return resultado;
+
+
+   }
+   document.write("Resultado "+ fraseCesar);
 }

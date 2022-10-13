@@ -25,7 +25,8 @@ function inicio() {
     var numero = window.prompt("Introduce número");
     if (isNaN(numero)) {
       //No es un número.
-
+      console.log("No es un número");
+      console.log(numero);
     } else {
       //Cancelación no debe contarse, los demás números sí.
       if (numero != "") {
@@ -37,15 +38,15 @@ function inicio() {
 
     console.log(numArray);
 
-  } while (numero != "0" && numero != "");
+  } while (numero != "0" && numero != null);
   // Ordenar el array de menor a mayor.
   numArray.sort();
   console.log(numArray);
   // Cuando se repite es al menos 2 veces.
   let veces = 1;
-  if (numero == 0) {
+  if (numero === null) {
     document.write("Se ha terminado la secuencia a petición del usuario.");
-      //Salto en caso de entrada de 0
+      //Salto en caso de entrada null por cancelar ventan.
   } else {
     
 
