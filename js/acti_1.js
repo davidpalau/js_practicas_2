@@ -28,7 +28,7 @@ function inicio(){
     
    for (let i=0; i<frase.length; ++i){
     //Si la letra está en el array de letras (es un símbolo, un espacio...)
-    if (letras.indexOf(letras[i])!=-1){
+    if (letras.indexOf(frase[i])!=-1){
         //movimiento de posición % 27 en caso de dar la vuelta.
         let posicion=((letras.indexOf(frase[i])+numCesar) % 27);// En caso de dar la vuelta.
         fraseCesar+=letras[posicion];

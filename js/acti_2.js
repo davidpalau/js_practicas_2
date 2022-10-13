@@ -16,28 +16,30 @@ function inicio(){
     console.log(frase);
     //Posiciones a la derecha
     let numCesar = window.prompt("Introduzca una cifra: ");
-    numCesar = numCesar % 27;
     let fraseCesar = "";
     //abecedario español
    let letras = "abcdefghijklmnñopqrstuvwxyz";
-   let conteo = 0;
+   var conteo = 0;
    for (let i=0; i<frase.length; ++i){
-    numCesar_1 = numCesar[conteo];
-    numCesar_1 = parseInt(numCesar_1);
-            conteo++;
-  
-        document.write(numCesar_1)
+    numCesar_1 = numCesar.charAt(conteo);
+    if(conteo == numCesar.length-1){
+        conteo = 0;
+    }else{
+        conteo++;
+    }
     //Si la letra está en el array de letras (es un símbolo, un espacio...)
-    if (letras.indexOf(letras[i])!=-1){
+    if (letras.indexOf(frase[i])!=-1){
         //movimiento de posición % 27 en caso de dar la vuelta.
         let posicion=((letras.indexOf(frase[i])+numCesar_1) % 27);// En caso de dar la vuelta.
         fraseCesar+=letras[posicion];
 
     }else{
         fraseCesar+= frase[i];
+        console.log("Llega al else if");
     }
 
 
    }
+   // Replace lo utilizo como parche, pero funciona.replace("undefined", " ")
    document.write("Resultado "+ fraseCesar);
 }
