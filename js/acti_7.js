@@ -26,7 +26,7 @@ str_1 = str_1.toLocaleLowerCase();
     let letras = "abcdefghijklmnñopqrstuvwxyz";
     let palindromo = true;
     console.log(str_1);
-
+    //Quitar acentos de las vocales
     for(let i = 0; i < str_1.length; i++){
         if("àá".indexOf(str_1[i]) != -1){
            str_2 += "a";
@@ -44,36 +44,21 @@ str_1 = str_1.toLocaleLowerCase();
  
 
 }
-
+// realiza una copia de string pero a la inversa.
 for(let i = str_2.length-1; i >=0;i--){
     str_3 += str_2[i];
 }
+//Compara copia inversa con original 
 console.log(str_2);
 for(let i = 0; i < str_2.length; i++){
     if(str_2[i]!=str_3[i]){
         palindromo =false;
     }
 }
+//respuesta 
 if(palindromo){
     console.log("Sí es un palindromo");
 }else{
     console.log("No es un palindromo");
 }
 }
-
-/**
- *  for(let i = 0; i < palindrome.length; i++){
-        if(palindrome[i]== 'á' || palindrome[i]== 'à' ){
-            palindrome[i] = "a";
-        }else if(palindrome[i]== 'é' || palindrome[i]== 'è' ){
-            palindrome[i] = "e";
-        }else if(palindrome[i]== 'í' || palindrome[i]== 'ì' ){
-            palindrome[i]= "i";
-        }else if((palindrome[i]== 'ó' || palindrome[i]== 'ò' )){
-            palindrome[i]="o";
-        }else if(palindrome[i]== 'ú' || palindrome[i]== 'ù' ){
-            palindrome[i]="u";
-        }
-    }
-    console.log(palindrome);
- */

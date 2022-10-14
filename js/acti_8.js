@@ -20,7 +20,8 @@ window.addEventListener("load", inicio, true);
 function inicio() {
   // para guardar entrada de números.
   const numArray = [];
-  // C
+  // Para calcular le media 
+  let sumaTotal = 0;
   do {
     var numero = window.prompt("Introduce número");
     if (isNaN(numero)) {
