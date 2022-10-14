@@ -18,3 +18,20 @@ students are not placed in the same group forming a group of 5.
 
  * 
  */
+
+window.addEventListener("load", inicio, true);
+//inicio
+function inicio() {
+
+    let miArray = new Array; 
+    let nombre_1 = window.prompt("Introduce nombre");
+
+    for(let i = 0; i<0; i++){
+        for(let j = 0; j < 3; j){
+            miArray[i][j]= [nombre_1];
+        }
+     
+    }
+}
+
+
