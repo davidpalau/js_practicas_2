@@ -22,16 +22,57 @@ students are not placed in the same group forming a group of 5.
 window.addEventListener("load", inicio, true);
 //inicio
 function inicio() {
+    let condition = true;
+    let todosLosNombres = [];
+    let miArray = [];
+    let nombre;
+    let grupo = [];
+    let aleatoria;
+    do {
+        grupo = [3];
+        for (let j = 0; j < 3; j++) {
+            nombre = window.prompt("Introduce nombre");
+            //
 
-    let miArray = new Array; 
-    let nombre_1 = window.prompt("Introduce nombre");
 
-    for(let i = 0; i<0; i++){
-        for(let j = 0; j < 3; j){
-            miArray[i][j]= [nombre_1];
+            if (nombre == "f") {
+                condition = false;
+                j = 4;
+            } else {
+
+              
+                if (todosLosNombres.includes(nombre)) {
+             
+                    window.alert("El nombre esta repetido.");
+                } else {
+                    grupo[j] = nombre;
+                    todosLosNombres.push(nombre);
+                }
+
+
+            }
         }
-     
-    }
-}
+        if (nombre == "fin") {
 
+        } else {
+            miArray.push(grupo);
+
+        }
+
+
+    } while (condition);
+
+    console.log(miArray);
+    console.log(grupo);
+    if (grupo.length == 1) {
+        aleatoria = parseInt(Math.random(miArray.length));
+        miArray[0].push(grupo[0]);
+    }
+    aleatoria = parseInt(Math.random(miArray.length));
+    miArray[0].push(grupo[0]);
+
+    console.log(todosLosNombres);
+
+
+}
 
