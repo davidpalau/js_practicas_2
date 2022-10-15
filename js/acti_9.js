@@ -18,61 +18,45 @@ students are not placed in the same group forming a group of 5.
 
  * 
  */
-
 window.addEventListener("load", inicio, true);
 //inicio
 function inicio() {
     let condition = true;
-    let todosLosNombres = [];
-    let miArray = [];
+    let todosLosNombres_1 = [];
+    let todosLosNombres_2 = [];
     let nombre;
+    let otro_1 = 0;
+    let otro_2 = 0;
     let grupo = [];
     let aleatoria;
+    let conteoAleatorio = []
+    
+
     do {
-        grupo = [3];
-        for (let j = 0; j < 3; j++) {
-            nombre = window.prompt("Introduce nombre");
-            //
+        nombre = window.prompt("Introduce nombre");
+        if(nombre== "fin"){
+            condition = false;
 
-
-            if (nombre == "f") {
-                condition = false;
-                j = 4;
-            } else {
-
-              
-                if (todosLosNombres.includes(nombre)) {
-             
-                    window.alert("El nombre esta repetido.");
-                } else {
-                    grupo[j] = nombre;
-                    todosLosNombres.push(nombre);
-                }
-
-
-            }
+        }else if(todosLosNombres_1.includes(nombre)==false){
+            todosLosNombres_1[otro_1] = nombre;
+            otro_1++;
         }
-        if (nombre == "fin") {
-
-        } else {
-            miArray.push(grupo);
-
-        }
-
 
     } while (condition);
 
-    console.log(miArray);
-    console.log(grupo);
-    if (grupo.length == 1) {
-        aleatoria = parseInt(Math.random(miArray.length));
-        miArray[0].push(grupo[0]);
+    while(todosLosNombres_2.length < todosLosNombres_1.length){
+        aleatoria = parseInt(Math.random()*todosLosNombres_1.length);
+        if(conteoAleatorio.includes(aleatoria)==false){
+            todosLosNombres_2[otro_2] = todosLosNombres_1[aleatoria];
+            conteoAleatorio[otro_2] = aleatoria;
+            otro_2++;
+
+        }
+        
     }
-    aleatoria = parseInt(Math.random(miArray.length));
-    miArray[0].push(grupo[0]);
-
-    console.log(todosLosNombres);
+    console.log(todosLosNombres_1);
+    console.log(todosLosNombres_2);
 
 
+    
 }
-
