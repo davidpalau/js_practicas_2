@@ -97,13 +97,6 @@ function grupos(nombres) {
     console.log(grupos);
     console.log(nombres);
 
-    for(let i = 0; i < grupos.length; i++){
-        document.write("Grupo ");
-        for(let j = 0; j < grupos[i].length; j++){
-            document.write(+i+1 +" "+ grupos[i][j]);
-        }
-    }
-
     }
     
 
