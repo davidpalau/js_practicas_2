@@ -40,9 +40,9 @@ function inicio() {
                 j = 4;
             } else {
 
-              
+
                 if (todosLosNombres.includes(nombre)) {
-             
+
                     window.alert("El nombre esta repetido.");
                 } else {
                     grupo[j] = nombre;

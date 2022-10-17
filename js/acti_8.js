@@ -47,9 +47,9 @@ function inicio() {
   let veces = 1;
   if (numero === null) {
     document.write("Se ha terminado la secuencia a petición del usuario.");
-      //Salto en caso de entrada null por cancelar ventan.
+    //Salto en caso de entrada null por cancelar ventan.
   } else {
-    
+
 
 
     for (let i = 0; i < numArray.length; i++) {
@@ -57,7 +57,7 @@ function inicio() {
       if (numArray[i] == numArray[i + 1]) {
         document.write("El número: " + numArray[i] + " se repite ");
         veces++;
-      
+
       } else {
 
         if (veces != 1) {

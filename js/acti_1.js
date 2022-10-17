@@ -10,13 +10,13 @@ number that indicates the key.
 
 
 
-window.addEventListener("load",inicio,true);
+window.addEventListener("load", inicio, true);
 
-function inicio(){
+function inicio() {
 
     document.write("<h1>Cifrado César:</h1>");
-   let frase = window.prompt("Introduzca texto para encriptar: ");
-   //Para estar seguro que todas las letras son minuscula.
+    let frase = window.prompt("Introduzca texto para encriptar: ");
+    //Para estar seguro que todas las letras son minuscula.
     frase = frase.toLowerCase();
     console.log(frase);
     //Posiciones a la derecha
@@ -24,20 +24,20 @@ function inicio(){
     numCesar = numCesar % 27;
     let fraseCesar = "";
     //abecedario español
-   let letras = "abcdefghijklmnñopqrstuvwxyz";
-    
-   for (let i=0; i<frase.length; ++i){
-    //Si la letra está en el array de letras (es un símbolo, un espacio...)
-    if (letras.indexOf(frase[i])!=-1){
-        //movimiento de posición % 27 en caso de dar la vuelta.
-        let posicion=((letras.indexOf(frase[i])+numCesar) % 27);// En caso de dar la vuelta.
-        fraseCesar+=letras[posicion];
+    let letras = "abcdefghijklmnñopqrstuvwxyz";
 
-    }else{
-        fraseCesar+= frase[i];
+    for (let i = 0; i < frase.length; ++i) {
+        //Si la letra está en el array de letras (es un símbolo, un espacio...)
+        if (letras.indexOf(frase[i]) != -1) {
+            //movimiento de posición % 27 en caso de dar la vuelta.
+            let posicion = ((letras.indexOf(frase[i]) + numCesar) % 27);// En caso de dar la vuelta.
+            fraseCesar += letras[posicion];
+
+        } else {
+            fraseCesar += frase[i];
+        }
+
+
     }
-
-
-   }
-   document.write("Resultado "+ fraseCesar);
+    document.write("Resultado " + fraseCesar);
 }

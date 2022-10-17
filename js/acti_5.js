@@ -43,10 +43,10 @@ con un mensaje
 window.addEventListener("load", inicio, true);
 
 function inicio() {
-   // let user = window.prompt("Introduce tú usuario: ");
+    // let user = window.prompt("Introduce tú usuario: ");
     let password = window.prompt("Introduce tú contraseña: ");
     let letras = "abcdefghijklmnñopqrstuvwxyzáéíóú1234567890";
-   // username(user);
+    // username(user);
     passwordValidate(password);
 
     function username(user) {
@@ -104,21 +104,21 @@ function inicio() {
 
             }
             for (let i = 0; i < password.length; i++) {
-
+                //Cuadno no es letra ni número sera caracter especial 
                 if (letras_1.indexOf(password[i]) == -1 && letras_2.indexOf(password[i]) == -1 && numeros.indexOf(password[i]) == -1) {
                     console.log("Caracter")
                     caracter = true;
                     i = password.length;
-                }else{
+                } else {
 
                 }
 
             }
 
 
-            if (letraletter==true && letralower==true && numValido == true && caracter == true) {
-            document.write("La contraseña se ha guardado correctament.")
-            }else{
+            if (letraletter == true && letralower == true && numValido == true && caracter == true) {
+                document.write("La contraseña se ha guardado correctament.")
+            } else {
                 document.write("La contraseña no se ajusta.")
             }
 

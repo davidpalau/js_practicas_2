@@ -6,7 +6,7 @@ ACTIVITY 6 – Display asterisks for an array
 */
 window.addEventListener("load", inicio, true);
 
-function inicio(){
+function inicio() {
 
 
     numeros = new Array(20);
@@ -21,7 +21,7 @@ function inicio(){
             document.write("*");
         }
         document.write("</p>");
-    
+
     }
     console.log(numeros);
 

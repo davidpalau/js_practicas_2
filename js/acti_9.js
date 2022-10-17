@@ -70,6 +70,8 @@ function grupos(nombres) {
 
     if (nombres.length < 3) {
         grupos[0] = nombres;
+
+        //En caso de ser superior a 3 y menor de 6.
     } else if (nombres.length == 4 || nombres.length == 5) {
         grupos[0] = nombres.slice(0, 2);
         grupos[1] = nombres.slice(2, 5);
@@ -82,7 +84,7 @@ function grupos(nombres) {
         }
 
 
-
+        //En caso de sobrar 1 personas, se agruparan en otros grupos pasando un grupo de 3 a 4 personas
     } else if (nombres.length % 3 == 1) {
 
         let j = 0;
@@ -94,7 +96,7 @@ function grupos(nombres) {
         grupos[grupo_aleatorio][grupos[0].length] = nombres[nombres.length - 1];
 
     } else if (nombres.length % 3 == 2) {
-
+        //En caso de sobrar 2 personas, se agruparan en otros grupos pasando dos grupos de 3 a 4 personas
         let j = 0;
         for (let i = 0; i < (nombres.length - 2); i += 3) {
             grupos[j] = nombres.slice(i, i + 3);
@@ -104,7 +106,7 @@ function grupos(nombres) {
         grupo_aleatorio = parseInt(Math.random() * grupos.length);
         grupos[grupo_aleatorio][grupos[grupo_aleatorio].length] = nombres[nombres.length - 1];
         do {
-            grupo_aleatorio_2 = parseInt(Math.random() * grupos.length);
+            //En caso que no se repita el aletrorio, de este modo no habran grupos de 5 personas.
             if (grupo_aleatorio_2 != grupo_aleatorio) {
                 grupo_aleatorio_2 = parseInt(Math.random() * grupos.length);
                 grupos[grupo_aleatorio_2][grupos[grupo_aleatorio_2].length] = nombres[nombres.length - 2];
@@ -114,8 +116,22 @@ function grupos(nombres) {
         } while (grupo_aleatorio_2 == grupo_aleatorio);
 
     }
+    // muestra en pantalla
     console.log(nombres);
     console.log(grupos);
+    //Muestra en el html
+    for (let i = 0; i < grupos.length; i++) {
+        document.write("<p> Grupo: " + (i + 1) + " => ");
+        for (let j = 0; j < grupos[i].length; j++) {
+            if (j == grupos[i].length - 1) {
+                document.write(" " + grupos[i][j] + ".");
+            } else {
+                document.write(grupos[i][j] + ", ");
+            }
 
+
+        }
+        document.write("</p>");
+    }
 
 }
