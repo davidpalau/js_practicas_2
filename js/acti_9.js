@@ -66,37 +66,56 @@ function inicio() {
 function grupos(nombres) {
 
     let grupos = new Array();
-    
+    grupos.reduce
 
     if (nombres.length < 3) {
         grupos[0] = nombres;
     } else if (nombres.length == 4 || nombres.length == 5) {
         grupos[0] = nombres.slice(0, 2);
         grupos[1] = nombres.slice(2, 5);
-    } else{
+    } else if (nombres.length % 3 == 0) {
 
         let j = 0;
-        for (let i = 0; i <= nombres.length; i += 3) {
+        for (let i = 0; i < nombres.length; i += 3) {
             grupos[j] = nombres.slice(i, i + 3);
             j++;
         }
-        j--;
-            if(grupos[j-1].length > 0 && grupos[j-1].length <3){
-               
-                grupos[0][ grupos[0].length] = grupos[j][0];
-                grupos[0][ grupos[0].length] = grupos[j][1];
 
+
+
+    } else if (nombres.length % 3 == 1) {
+
+        let j = 0;
+        for (let i = 0; i < (nombres.length - 1); i += 3) {
+            grupos[j] = nombres.slice(i, i + 3);
+            j++;
+        }
+        grupo_aleatorio = parseInt(Math.random() * grupos.length);
+        grupos[grupo_aleatorio][grupos[0].length] = nombres[nombres.length - 1];
+
+    } else if (nombres.length % 3 == 2) {
+
+        let j = 0;
+        for (let i = 0; i < (nombres.length - 2); i += 3) {
+            grupos[j] = nombres.slice(i, i + 3);
+            j++;
+        }
+        let grupo_aleatorio_2;
+        grupo_aleatorio = parseInt(Math.random() * grupos.length);
+        grupos[grupo_aleatorio][grupos[grupo_aleatorio].length] = nombres[nombres.length - 1];
+        do {
+            grupo_aleatorio_2 = parseInt(Math.random() * grupos.length);
+            if (grupo_aleatorio_2 != grupo_aleatorio) {
+                grupo_aleatorio_2 = parseInt(Math.random() * grupos.length);
+                grupos[grupo_aleatorio_2][grupos[grupo_aleatorio_2].length] = nombres[nombres.length - 2];
             }
 
 
+        } while (grupo_aleatorio_2 == grupo_aleatorio);
+
     }
-
-
-
-
-    console.log(grupos);
     console.log(nombres);
+    console.log(grupos);
 
-    }
-    
 
+}
