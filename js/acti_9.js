@@ -68,13 +68,19 @@ function grupos(nombres) {
     let grupos = new Array();
     grupos.reduce
 
-    if (nombres.length < 3) {
+    if(nombres.length == 0){
+        document.write("Ningun nombre");
+    }else if (nombres.length < 3) {
         grupos[0] = nombres;
 
         //En caso de ser superior a 3 y menor de 6.
-    } else if (nombres.length == 4 || nombres.length == 5) {
-        grupos[0] = nombres.slice(0, 2);
-        grupos[1] = nombres.slice(2, 5);
+    } else if (nombres.length == 4) {
+        grupos[0] = nombres;
+    }
+
+    else if (nombres.length == 4 || nombres.length == 5) {
+        grupos[0] = nombres.slice(0, 3);
+        grupos[1] = nombres.slice(3, 5);
     } else if (nombres.length % 3 == 0) {
 
         let j = 0;
@@ -120,18 +126,19 @@ function grupos(nombres) {
     console.log(nombres);
     console.log(grupos);
     //Muestra en el html
-    for (let i = 0; i < grupos.length; i++) {
-        document.write("<p> Grupo: " + (i + 1) + " => ");
-        for (let j = 0; j < grupos[i].length; j++) {
-            if (j == grupos[i].length - 1) {
-                document.write(" " + grupos[i][j] + ".");
-            } else {
-                document.write(grupos[i][j] + ", ");
+
+        for (let i = 0; i < grupos.length; i++) {
+            document.write("<p> Grupo: " + (i + 1) + " => ");
+            for (let j = 0; j < grupos[i].length; j++) {
+                if (j == grupos[i].length - 1) {
+                    document.write(" " + grupos[i][j] + ".");
+                } else {
+                    document.write(grupos[i][j] + ", ");
+                }
+
+
             }
-
-
+            document.write("</p>");
         }
-        document.write("</p>");
     }
 
-}
