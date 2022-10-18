@@ -57,8 +57,10 @@ function inicio() {
     }
     //respuesta 
     if (palindromo) {
+        document.write("Sí es un palindromo");
         console.log("Sí es un palindromo");
     } else {
         console.log("No es un palindromo");
+        document.write("No es un palindromo");
     }
 }
