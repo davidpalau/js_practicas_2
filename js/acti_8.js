@@ -28,11 +28,13 @@ function inicio() {
       //No es un número.
       console.log("No es un número");
       console.log(numero);
+
     } else {
       //Cancelación no debe contarse, los demás números sí.
       if (numero != "") {
         console.log("Es un número.");
         numArray.push(numero);
+        sumaTotal += parseInt(numero);
       }
 
     }
@@ -61,9 +63,9 @@ function inicio() {
       } else {
 
         if (veces != 1) {
-          document.write(veces + " veces de una secuencia de " + numArray.length + " números.</br>");
+          document.write(veces + " veces de una media de " +(sumaTotal / numArray.length) +" números.</br>");
         } else {
-          document.write("El número " + numArray[i] + " a entrado una vez de una secuencia de " + numArray.length + ".<br>");
+          document.write("El número " + numArray[i] + " a entrado una vez de una media  de " + (sumaTotal / numArray.length) + ".<br>");
         }
 
         veces = 1;
